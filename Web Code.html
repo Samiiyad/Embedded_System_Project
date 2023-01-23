@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Crazy Car</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      color: #279a1f;
+      margin-top: 50px;
+    }
+
+    form {
+      margin-top: 50px;
+    }
+
+    input[type="button"] {
+      padding: 10px 20px;
+      font-size: 18px;
+    }d
+  </style>
+</head>
+<body>
+  <h1>Car Control</h1>
+  <form>
+    <input type="button" value="Forward" onclick="sendCommand('forward')">
+    <input type="button" value="Backward" onclick="sendCommand('backward')">
+    <input type="button" value="Left" onclick="sendCommand('left')">
+    <input type="button" value="Right" onclick="sendCommand('right')">
+    <input type="button" value="Stop" onclick="sendCommand('stop')">
+    <input type="button" value="Park" onclick="sendCommand('park')">
+  </form>
+  <script>
+    function sendCommand(command) {
+      const serverUrl = "http://192.168.1.107"
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET",serverUrl + "/"+ command, true);
+      xhttp.send();
+    }
+  </script>
+</body>
+</html>
